@@ -11,7 +11,10 @@ export default withApollo(({ initialState, headers }) => {
     connectToDevTools: isBrowser,
     ssrMode: !isBrowser,
     link: createHttpLink({
-      uri: 'http://localhost:2000/graphql',
+      uri:
+        process.env.NODE_ENV === 'development'
+          ? 'http://localhost:2000/graphql'
+          : process.env.BACKEND_URL,
       credentials: 'include',
       ...(!isBrowser && { fetch }),
       headers,
