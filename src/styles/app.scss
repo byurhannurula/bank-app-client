@@ -1,0 +1,15 @@
+$primary: #419BFF;
+
+@import './reset.scss';
+@import './nprogress.scss';
+@import './common/base.scss';
+
+@import './components/loader.scss';
+@import './components/button.scss';
+@import './components/input.scss';
+@import './components/alert.scss';
+
+@import './pages/home.scss';
+@import './pages/accounts.scss';
+@import './pages/profile.scss';
+@import './pages/auth.scss';

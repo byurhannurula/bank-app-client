@@ -1,0 +1,79 @@
+.modal {
+	position: fixed;
+  z-index: 11;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+	background-color: rgba(20, 20, 20, 0.75);
+	
+	// hide element
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+
+	&.is-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+	&-content {
+		width: 100%;
+    max-width: 560px;
+    overflow: auto;
+    margin-top: -212px;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,.1), 0 10px 10px -5px rgba(0,0,0,.04);
+	}
+}
+
+.modal-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1px solid #ccc;
+	padding: 12px 20px;
+
+	& .close {
+		outline: 0;
+		cursor: pointer;
+		font-size: 28px;
+	}
+}
+
+.modal-body {
+	padding: 22px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.modal-footer {
+	display: flex;
+	justify-content: center;
+}
+
+@media screen and (max-width: 456px) {
+	.modal-header {
+		padding: 8px 20px;
+	}
+}
+
+
+.modal[data-animation="on"] {
+  transition: opacity .3s, visibility .3s;
+
+  .modal-content {
+    will-change: transform;
+    transform: translateY(15px);
+    transition: all 200ms ease-in-out;
+  }
+
+  &.is-visible .modal-content {
+    transform: translateY(0);
+  }
+}

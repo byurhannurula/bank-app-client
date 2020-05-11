@@ -1,0 +1,36 @@
+{
+  "private": false,
+  "version": "0.1.0",
+  "name": "back-app-web",
+  "description": "Banking app front end.",
+  "author": "Byurhan Beyzat <hi@byurhanbeyzat.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "deploy": "yarn run build && yarn run start"
+  },
+  "dependencies": {
+    "@apollo/react-hooks": "^3.1.5",
+    "@zeit/next-sass": "^1.0.1",
+    "apollo-cache-inmemory": "^1.6.6",
+    "apollo-client": "^2.6.9",
+    "apollo-link-http": "^1.5.17",
+    "classnames": "^2.2.6",
+    "flickity": "^2.2.1",
+    "formik": "^2.1.4",
+    "graphql": "^15.0.0",
+    "graphql-tag": "^2.10.3",
+    "isomorphic-unfetch": "^3.0.0",
+    "next": "9.4.0",
+    "next-with-apollo": "^5.0.1",
+    "node-sass": "^4.14.1",
+    "nprogress": "^0.2.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-flickity-component": "^3.5.0",
+    "yup": "^0.28.5"
+  },
+  "devDependencies": {}
+}

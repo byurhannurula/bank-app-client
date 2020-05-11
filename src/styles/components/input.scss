@@ -1,0 +1,85 @@
+.row {
+  display: flex;
+  place-items: center;
+  padding-bottom: 12px;
+}
+
+.input-group {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &:not(:first-of-type) {
+    margin-top: 10px;
+  }
+
+  .input-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    label {
+      color: #868282;
+      font-size: 0.9em;
+    }
+    p.error {
+      color: red;
+      font-size: 0.75em;
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+  }
+
+  .password-info {
+    font-size: 0.7em;
+    margin-bottom: 0;
+    margin-top: 4px;
+  }
+}
+
+.input,
+select {
+  outline: none;
+  border-radius: 4px;
+  font-size: 0.95em;
+  line-height: 1.25;
+  color: #141414;
+  margin-top: 6px;
+  margin-bottom: 8px;
+  padding: 0.5em 0.7em 0.7em;
+  background-color: transparent;
+  border: 1px solid #b9b8b8;
+  
+  &:focus {
+    border-color: $primary;
+    box-shadow: 0 0 0 0.2rem rgba($primary, .25);
+
+    &:invalid {
+      border-color: #dc3545;
+      box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, .25);
+    }
+
+    &::placeholder {
+      color: transparent;
+      transition: all 150ms ease;
+    }
+  }
+
+  &:invalid {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.1rem rgba(220, 53, 69, .25);
+  }
+
+  &::placeholder {
+    color: #ccc;
+  }
+}
+
+.select {
+  -webkit-appearance: none;
+  background-image: url('/chevron-down.svg');
+  background-position: right 10px center;
+  background-repeat: no-repeat;
+  background-size: 18px;
+}

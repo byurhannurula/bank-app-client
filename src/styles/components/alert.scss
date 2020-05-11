@@ -1,0 +1,43 @@
+.alert-root {
+  position: absolute;
+  right: 32px;
+}
+
+.alert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 99;
+  width: 280px;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 4px;
+  background-color: rgb(32, 192, 32);
+  transition: all 250ms ease-in-out;
+  transform: translateX(150%);
+
+  &.active {
+    transform: translateX(0%);
+  }
+
+  .content {
+    h4, p {
+      margin: 0;
+    }
+    h4 {
+      font-size: 15px;
+      font-weight: 500;
+    }
+    p {
+      margin-top: 2px;
+      font-size: 12px;
+    }
+  }
+
+  button {
+    padding: 0;
+    color: #fff;
+    font-size: 20px;
+    background-color: transparent;
+  }
+}
