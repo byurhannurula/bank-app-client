@@ -1,4 +1,4 @@
-# bank-app
+# bank-app-client
 
 ## Tech Stack
 - Back-End:
