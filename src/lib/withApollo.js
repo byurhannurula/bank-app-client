@@ -6,7 +6,7 @@ import fetch from 'isomorphic-unfetch'
 
 export default withApollo(({ initialState, headers }) => {
   const isBrowser = typeof window !== 'undefined'
-  console.log(headers)
+
   return new ApolloClient({
     connectToDevTools: isBrowser,
     ssrMode: !isBrowser,
@@ -14,7 +14,7 @@ export default withApollo(({ initialState, headers }) => {
       uri:
         process.env.NODE_ENV === 'development'
           ? 'http://localhost:2000/graphql'
-          : 'https://tnt-bank-api.herokuapp.com/graphql',
+          : process.env.BACKEND_URL,
       credentials: 'include',
       ...(!isBrowser && { fetch }),
       headers,
