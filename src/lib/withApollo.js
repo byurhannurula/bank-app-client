@@ -14,7 +14,7 @@ export default withApollo(({ initialState, headers }) => {
       uri:
         process.env.NODE_ENV === 'development'
           ? 'http://localhost:2000/graphql'
-          : process.env.BACKEND_URL,
+          : 'https://bank-api.bbn.codes/graphql',
       credentials: 'include',
       ...(!isBrowser && { fetch }),
       headers,
