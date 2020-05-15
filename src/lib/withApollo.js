@@ -6,7 +6,7 @@ import fetch from 'isomorphic-unfetch'
 
 export default withApollo(({ initialState, headers }) => {
   const isBrowser = typeof window !== 'undefined'
-
+  console.log(headers?.cookie)
   return new ApolloClient({
     connectToDevTools: isBrowser,
     ssrMode: !isBrowser,
@@ -17,7 +17,9 @@ export default withApollo(({ initialState, headers }) => {
           : 'https://bank-api.bbn.codes/graphql',
       credentials: 'include',
       ...(!isBrowser && { fetch }),
-      headers,
+      headers: {
+        cookie: headers?.cookie,
+      },
     }),
     cache: new InMemoryCache().restore(initialState || {}),
   })
