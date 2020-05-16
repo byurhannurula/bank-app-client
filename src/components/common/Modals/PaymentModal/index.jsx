@@ -9,6 +9,10 @@ export const PaymentModal = ({ closeModal }) => {
   const { loading, data } = useQuery(getAccounts)
   const [makePayment, { data: paymentData, error }] = useMutation(
     makePaymentMutation,
+    {
+      refetchQueries: [{ query: getAccounts }],
+      awaitRefetchQueries: true,
+    },
   )
 
   if (loading) {
@@ -29,17 +33,15 @@ export const PaymentModal = ({ closeModal }) => {
       }}
       onSubmit={async (res, { setSubmitting, resetForm }) => {
         setSubmitting(true)
-
-        await makePayment({
-          variables: res,
-        })
+        await makePayment({ variables: res })
+        resetForm()
+        closeModal()
       }}
     >
       {({ touched, errors, isValid, isSubmitting }) => (
         <Form>
           {error && <p>{error.message}</p>}
           {loading && <Loader />}
-          {data?.makePayment?.id && closeModal()}
           <div className="column">
             <SelectField
               id="IBAN_sender"

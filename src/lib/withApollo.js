@@ -6,7 +6,7 @@ import fetch from 'isomorphic-unfetch'
 
 export default withApollo(({ initialState, headers }) => {
   const isBrowser = typeof window !== 'undefined'
-  console.log(headers?.cookie)
+
   return new ApolloClient({
     connectToDevTools: isBrowser,
     ssrMode: !isBrowser,
@@ -18,6 +18,7 @@ export default withApollo(({ initialState, headers }) => {
       credentials: 'include',
       ...(!isBrowser && { fetch }),
       headers: {
+        ...headers,
         cookie: headers?.cookie,
       },
     }),
