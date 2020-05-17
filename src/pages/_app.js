@@ -2,6 +2,7 @@ import React from 'react'
 import Router from 'next/router'
 import NProgress from 'nprogress'
 import { ApolloProvider } from '@apollo/react-hooks'
+import { getDataFromTree } from '@apollo/react-ssr'
 
 import redirect from 'lib/redirect'
 import withApollo from 'lib/withApollo'
@@ -73,4 +74,4 @@ MyApp.getInitialProps = async ({ Component, ctx }) => {
   return { pageProps, loggedInUser }
 }
 
-export default withApollo(MyApp)
+export default withApollo(MyApp, { getDataFromTree })
