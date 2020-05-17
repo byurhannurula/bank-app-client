@@ -26,7 +26,6 @@ export default withApollo(({ initialState, headers }) => {
   })
 
   return new ApolloClient({
-    credentials: 'include',
     connectToDevTools: isBrowser,
     ssrMode: !isBrowser,
     link: httpLink,
