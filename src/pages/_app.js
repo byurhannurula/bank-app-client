@@ -2,7 +2,6 @@ import React from 'react'
 import Router from 'next/router'
 import NProgress from 'nprogress'
 import { ApolloProvider } from '@apollo/react-hooks'
-import { getDataFromTree } from '@apollo/react-ssr'
 
 import redirect from 'lib/redirect'
 import withApollo from 'lib/withApollo'
@@ -20,11 +19,11 @@ Router.events.on('routeChangeStart', () => NProgress.start())
 Router.events.on('routeChangeComplete', () => NProgress.done())
 Router.events.on('routeChangeError', () => NProgress.done())
 
-const MyApp = ({ Component, pageProps, apollo, loggedInUser }) => (
+const MyApp = ({ Component, pageProps, apolloClient, loggedInUser }) => (
   <>
     {loggedInUser && loggedInUser.me ? (
       <>
-        <ApolloProvider client={apollo}>
+        <ApolloProvider client={apolloClient}>
           <UserProvider>
             <SEO />
             <Header />
@@ -39,7 +38,7 @@ const MyApp = ({ Component, pageProps, apollo, loggedInUser }) => (
       </>
     ) : (
       <>
-        <ApolloProvider client={apollo}>
+        <ApolloProvider client={apolloClient}>
           <SEO />
           <Header />
           <main role="main">
@@ -74,4 +73,4 @@ MyApp.getInitialProps = async ({ Component, ctx }) => {
   return { pageProps, loggedInUser }
 }
 
-export default withApollo(MyApp, { getDataFromTree })
+export default withApollo(MyApp)
